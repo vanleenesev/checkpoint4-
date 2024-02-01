@@ -30,6 +30,7 @@ class EvenementController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $evenement->setOrganisateur($this->getUser());
             $entityManager->persist($evenement);
             $entityManager->flush();
 

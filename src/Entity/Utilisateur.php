@@ -23,7 +23,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Email = null;
+    private ?string $email = null;
 
     #[ORM\Column(length: 255)]
     private ?string $password = null;
@@ -43,11 +43,15 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Reservation::class)]
     private Collection $reservations;
 
+    #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Evenement::class)]
+    private Collection $evenementss;
+
     public function __construct()
     {
         $this->evenements = new ArrayCollection();
         $this->evenement = new ArrayCollection();
         $this->reservations = new ArrayCollection();
+        $this->evenementss = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,12 +80,12 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getEmail(): ?string
     {
-        return $this->Email;
+        return $this->email;
     }
 
-    public function setEmail(string $Email): static
+    public function setEmail(string $email): static
     {
-        $this->Email = $Email;
+        $this->email = $email;
 
         return $this;
     }
@@ -211,6 +215,36 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($reservation->getUtilisateur() === $this) {
                 $reservation->setUtilisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Evenement>
+     */
+    public function getEvenementss(): Collection
+    {
+        return $this->evenementss;
+    }
+
+    public function addEvenementss(Evenement $evenementss): static
+    {
+        if (!$this->evenementss->contains($evenementss)) {
+            $this->evenementss->add($evenementss);
+            $evenementss->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenementss(Evenement $evenementss): static
+    {
+        if ($this->evenementss->removeElement($evenementss)) {
+            // set the owning side to null (unless already changed)
+            if ($evenementss->getUtilisateur() === $this) {
+                $evenementss->setUtilisateur(null);
             }
         }
 

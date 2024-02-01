@@ -5,8 +5,8 @@ namespace App\Entity;
 use App\Repository\EvenementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: EvenementRepository::class)]
 class Evenement
@@ -16,123 +16,136 @@ class Evenement
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $titre = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Titre = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $Description = null;
+    private ?string $description = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $Date = null;
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Lieu = null;
+    private ?string $lieu = null;
 
-    #[ORM\Column]
-    private ?int $OrganisateurID = null;
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'evenements')]
+   // #[ORM\JoinColumn(name: "organisateur_id", referencedColumnName: "id", nullable: true)]
+    private ?Utilisateur $organisateur = null;
 
     #[ORM\ManyToMany(targetEntity: Utilisateur::class, inversedBy: 'evenements')]
-    private Collection $organisateur;
+    private Collection $utilisateurs;
 
     public function __construct()
     {
-        $this->organisateur = new ArrayCollection();
+        $this->utilisateurs = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    // Getters et Setters pour chaque propriété
 
-    public function setID(int $ID): static
-    {
-        $this->ID = $ID;
-
-        return $this;
-    }
-
+    // Exemple de getter et setter pour la propriété $titre
     public function getTitre(): ?string
     {
-        return $this->Titre;
+        return $this->titre;
     }
 
-    public function setTitre(string $Titre): static
+    public function setTitre(string $titre): self
     {
-        $this->Titre = $Titre;
-
+        $this->titre = $titre;
         return $this;
     }
 
-    public function getDescription(): ?string
+    // Méthodes pour gérer la collection $utilisateurs
+    public function addUtilisateur(Utilisateur $utilisateur): self
     {
-        return $this->Description;
-    }
-
-    public function setDescription(string $Description): static
-    {
-        $this->Description = $Description;
-
+        if (!$this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs[] = $utilisateur;
+        }
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function removeUtilisateur(Utilisateur $utilisateur): self
     {
-        return $this->Date;
-    }
-
-    public function setDate(\DateTimeInterface $Date): static
-    {
-        $this->Date = $Date;
-
+        $this->utilisateurs->removeElement($utilisateur);
         return $this;
     }
 
-    public function getLieu(): ?string
-    {
-        return $this->Lieu;
-    }
-
-    public function setLieu(string $Lieu): static
-    {
-        $this->Lieu = $Lieu;
-
-        return $this;
-    }
-
-    public function getOrganisateurID(): ?int
-    {
-        return $this->OrganisateurID;
-    }
-
-    public function setOrganisateurID(int $OrganisateurID): static
-    {
-        $this->OrganisateurID = $OrganisateurID;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Utilisateur>
-     */
-    public function getOrganisateur(): Collection
+    // Getter et setter pour $organisateur
+    public function getOrganisateur(): ?Utilisateur
     {
         return $this->organisateur;
     }
 
-    public function addOrganisateur(Utilisateur $organisateur): static
+    public function setOrganisateur(?Utilisateur $organisateur): self
     {
-        if (!$this->organisateur->contains($organisateur)) {
-            $this->organisateur->add($organisateur);
-        }
-
+        $this->organisateur = $organisateur;
         return $this;
     }
 
-    public function removeOrganisateur(Utilisateur $organisateur): static
+    /**
+     * @param string|null $description
+     */
+    public function setDescription(?string $description): self
     {
-        $this->organisateur->removeElement($organisateur);
-
+        $this->description = $description;
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $date
+     */
+    public function setDate(?\DateTimeInterface $date): static
+    {
+        $this->date = $date;
+        return $this;
+    }
+
+    /**
+     * @param string|null $lieu
+     */
+    public function setLieu(?string $lieu): static
+    {
+        $this->lieu = $lieu;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): static
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 }
