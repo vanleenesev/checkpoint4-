@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Bienvenue sur Book My Event{% endblock %}
+
+{% block body %}
+
+    <section class="intro">
+
+
+        <h1>Bienvenue sur Book My Event</h1>
+        <h2>Avec l'inscription d'événements intuitive, vous pouvez lancer la vente de vos billets en quelques minutes</h2>
+
+        </section>
+
+    <div class="container">
+        <div class="column" id="column-1">
+            <!-- Contenu de la première colonne -->
+            <h2>1. L'évènement </h2>
+            <p>Saisissez Tes informations concernant ton événement </P>
+        </div>
+
+        <div class="column" id="column-2">
+            <!-- Contenu de la deuxième colonne -->
+            <h2> 2. Crée tes billets </h2>
+            <p>dates, heure, lieux .... </P>
+        </div>
+
+        <div class="column" id="column-3">
+            <!-- Contenu de la troisième colonne -->
+            <h2>Publie et partage</h2>
+            <p> Une fois ton événement lancé,  partage le facilement
+                sur les réseaux sociaux comme Facebook et Instagram pour toucher
+                un maximum de participants sur différentes plateformes. </p>
+        </div>
+    </div>
+
+    <div class="front-page-image">
+        <img src="{{ asset('image/images_front_page.JPG') }}" alt="Description de l'image">
+    </div>
+{% endblock %}

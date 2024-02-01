@@ -1,3 +1,157 @@
+/* Couleurs de base */
+:root {
+    --primary-color: #FFD700; /* Jaune Vif */
+    --text-color: #000000; /* Noir */
+    --background-color: #FFFFFF; /* Blanc */
+    --secondary-text-color: #808080; /* Gris */
+}
+
+/* Police de caractère */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-    background-color: skyblue;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-text-color);
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+/* Style de la navbar */
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.navbar a {
+    color: var(--background-color);
+}
+
+.navbar a:hover {
+    color: var(--secondary-text-color);
+}
+
+/* Style des boutons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%);
+    border-color: darken(var(--primary-color), 10%);
+}
+
+/* Autres styles */
+a, .text-primary {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: darken(var(--primary-color), 10%);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.front-page-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh; /* Utilisez 100vh pour que la section prenne au moins toute la hauteur de la fenêtre */
+    text-align: center; /* Centre le texte à l'intérieur des éléments h1 et h2 */
+}
+
+.register-form {
+    font-size: 19px;
+    height: 42px;
+    border-radius: 11px;
+    margin-bottom: 39px;
+    display: flex;
+    padding: 0 30px;
+    width: 85%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1; /* Chaque colonne prend un tiers de l'espace disponible */
+    margin: 0 10px; /* Ajoute un peu d'espace entre les colonnes */
+    padding: 20px; /* Espace intérieur pour le contenu de la colonne */
+}
+
+/* Styles spécifiques pour chaque colonne si nécessaire */
+#column-1 {
+    /* Styles spécifiques pour la première colonne */
+}
+
+#column-2 {
+    /* Styles spécifiques pour la deuxième colonne */
+}
+
+#column-3 {
+    /* Styles spécifiques pour la troisième colonne */
+}
+
+/* public/css/app.css */
+
+
+
+.intro {
+    /* Styles for the intro section */
+}
+
+.container {
+    /* Bootstrap container styles */
+}
+
+.event-form {
+    /* Styles for your form */
+}
+
+.ticket-block {
+    /* Styles for the ticket creation block */
+}
+
+.event-card {
+    /* Styles for the event card */
+}
+
+.steps {
+    /* Styles for the steps at the bottom of the page */
+}
+
+.step {
+    /* Individual step styling */
+}
+
+.btn-primary {
+    /* Your primary button styles */
 }
