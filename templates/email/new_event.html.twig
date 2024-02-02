@@ -1,0 +1,10 @@
+{# templates/emails/new_event.html.twig #}
+
+<p>Bonjour,</p>
+<p>Un nouvel événement a été créé :</p>
+<ul>
+    <li>Titre : {{ evenement.titre }}</li>
+    <li>Date : {{ evenement.date|date('Y-m-d H:i:s') }}</li>
+    <li>Description : {{ evenement.description }}</li>
+    <li>Lieu : {{ evenement.lieu }}</li>
+</ul>

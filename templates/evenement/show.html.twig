@@ -3,14 +3,12 @@
 {% block title %}Evenement{% endblock %}
 
 {% block body %}
+    <section class="intro">
     <h1>Evenement</h1>
+    </section>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ evenement.id }}</td>
-            </tr>
             <tr>
                 <th>Titre</th>
                 <td>{{ evenement.Titre }}</td>
@@ -26,10 +24,6 @@
             <tr>
                 <th>Lieu</th>
                 <td>{{ evenement.Lieu }}</td>
-            </tr>
-            <tr>
-                <th>OrganisateurID</th>
-                <td>{{ evenement.OrganisateurID }}</td>
             </tr>
         </tbody>
     </table>

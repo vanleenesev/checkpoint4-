@@ -3,9 +3,16 @@
 {% block title %}New Evenement{% endblock %}
 
 {% block body %}
+
+ <section class="intro">
     <h1>Create new Evenement</h1>
+    </section>
 
-    {{ include('evenement/_form.html.twig') }}
+<div class="create-event-page">
 
-    <a href="{{ path('app_evenement_index') }}">back to list</a>
+
+        {{ include('evenement/_form.html.twig') }}
+
+        <a href="{{ path('app_evenement_index') }}">back to list</a>
+    </div>
 {% endblock %}

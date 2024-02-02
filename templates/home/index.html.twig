@@ -19,12 +19,20 @@
             <!-- Contenu de la première colonne -->
             <h2>1. L'évènement </h2>
             <p>Saisissez Tes informations concernant ton événement </P>
+            <div class="front-page-image">
+                <img src="{{ asset('image/basic.JPG') }}" alt="">
+            </div>
         </div>
 
         <div class="column" id="column-2">
             <!-- Contenu de la deuxième colonne -->
             <h2> 2. Crée tes billets </h2>
             <p>dates, heure, lieux .... </P>
+            <div class="front-page-image">
+                <a href="{{ path('app_evenement_new')}}">
+                 <img src="{{ asset('image/ticket.JPG') }}" alt="Description de l'image">
+                </a>
+            </div>
         </div>
 
         <div class="column" id="column-3">
@@ -33,10 +41,15 @@
             <p> Une fois ton événement lancé,  partage le facilement
                 sur les réseaux sociaux comme Facebook et Instagram pour toucher
                 un maximum de participants sur différentes plateformes. </p>
+            <div class="front-page-image">
+                <img src="{{ asset('image/getticket.JPG') }}" alt="Description de l'image">
+            </div>
         </div>
     </div>
+<section class="intro">
+    <button type="submit" class="btn-primary">
+        <a href="{{ path('app_evenement_index') }}">Voir les événements</a>
+    </button>
+</section>
 
-    <div class="front-page-image">
-        <img src="{{ asset('image/images_front_page.JPG') }}" alt="Description de l'image">
-    </div>
 {% endblock %}

@@ -48,8 +48,18 @@ h2,  h4, h5, h6 {
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    color: var(--background-color);
-}
+    color: var(--secondary-text-color);
+    width: 100%; /* Fait en sorte que le bouton prenne toute la largeur de son conteneur */
+    color: black; /* Couleur du texte */
+    border: none; /* Supprime la bordure par défaut des boutons */
+    padding: 10px 0; /* Ajoute un peu de padding vertical pour agrandir le bouton */
+    text-align: center; /* Assure que le texte est centré */
+    font-size: 16px; /* Taille du texte */
+    cursor: pointer; /* Change le curseur lors du survol */
+
+    }
+
+
 
 .btn-primary:hover {
     background-color: darken(var(--primary-color), 10%);
@@ -122,6 +132,17 @@ footer {
 
 /* public/css/app.css */
 
+.link-container {
+    /* Styles pour positionner et styliser le conteneur du lien */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link-container a {
+    /* Styles pour le lien lui-même */
+    color: blue;
+    text-decoration: none;
+}
 
 
 .intro {
@@ -154,4 +175,89 @@ footer {
 
 .btn-primary {
     /* Your primary button styles */
+}
+/* Styles pour le tableau d'événements */
+.table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: var(--background-color);
+}
+
+.table th, .table td {
+    border: 1px solid var(--secondary-text-color);
+    padding: 10px;
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.table a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.table a:hover {
+    color: darken(var(--primary-color), 10%);
+    text-decoration: underline;
+}
+
+.no-records {
+    text-align: center;
+}
+
+.create-new-link {
+    display: block;
+    width: max-content;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.create-new-link:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+/* Styles pour la page de création d'un nouvel événement */
+.create-event-page h1 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.create-event-page .form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid var(--secondary-text-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+}
+
+.create-event-page a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.create-event-page a:hover {
+    background-color: darken(var(--primary-color), 10%);
 }

@@ -21,9 +21,9 @@
     </a>
     <div class=" navbar-collapse" id="navbarNav">
         <a class="nav-link" href="{{ path('app_evenement_new') }}">Crée ton évènement</a>
-        <a class="nav-link" href="{{ path('app_reservation_new') }}">Réservations</a>
+        <a class="nav-link" href="{{ path('app_evenement_index') }}">Voir les évènemets</a>
         <a class="navbar_links" href="{{ path('app_register') }}">Inscription</a>
-        <a href="{{ path('app_register') }}" class="navbar_links"> Connexion </a>
+        <a href="{{ path('app_login') }}" class="navbar_links"> Connexion </a>
     </div>
 </nav>
 {% block body %}{% endblock %}
